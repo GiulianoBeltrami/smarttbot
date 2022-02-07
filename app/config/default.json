@@ -1,0 +1,22 @@
+{
+    "DatabaseDevelopment":{
+        "dbConfig":{
+            "dialect":"mysql",
+            "host": "localhost",
+            "port": "3307",
+            "dbName":"smarttbot",
+            "dbUser":"root",
+            "dbPassword":"32411680"
+        }
+    },
+    "DatabaseProduction":{
+        "dbConfig":{
+            "dialect":"mysql",
+            "host": "mysql",
+            "port": "3306",
+            "dbName":"smarttbot",
+            "dbUser":"root",
+            "dbPassword":"32411680"
+        }
+    }
+}

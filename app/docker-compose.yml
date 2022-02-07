@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: '32411680'
+      MYSQL_DATABASE: 'smarttbot'
+    ports:
+      - "3307:3306"
