@@ -13,11 +13,9 @@ const initializeDb = async () => {
 
     mysqlConnection.query(`CREATE DATABASE IF NOT EXISTS ${dbName};`,(error, result) => {
     
-        if (error) throw new Error({
-            message:`Error creating ${dbName}`,
-            error: error
-        })
-        
+        if (error) {
+            throw new Error(error)
+        }
         else{
             console.log(`${dbName} created successfully`);
         }

@@ -10,6 +10,9 @@ app.use(bodyParser.json());
 
 app.use("/api",routes);
 
-app.listen(port, () => {
-    console.log('Listening on port ' + port);
-});
+if (require.main === module) {
+    app.listen(port)
+    console.log('API funcionando!')
+}
+
+module.exports = app;
