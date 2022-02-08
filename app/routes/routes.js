@@ -47,7 +47,7 @@ router.get('/candlestick', async (req, res) => {
     }
 });
 
-router.get('/candlestick/:time', async (req, res) => {
+router.get('/candlestick/time/:time', async (req, res) => {
     const time = req.params.time;
 
     if (!validations.isValidTime(time)) {
@@ -64,7 +64,45 @@ router.get('/candlestick/:time', async (req, res) => {
 
 });
 
-router.get('/candlestick/:pair/:time', async (req, res) => {
+router.get('/candlestick/pair/:pair', async (req, res) => {
+    const pair = [req.params.pair];
+
+    const isValidCoinPair = validations.isValidCoins(pair);
+
+    if(!isValidCoinPair){
+        res.statusCode = 400;
+        res.send({
+            error: `Wrong coin name, please check again and remember to send a post request first.Try again.`,
+            availableCoins: Coins
+        });
+    }
+    else{
+        var queryOneMinute = await CandleOneMinute.findAll({
+            where: {
+                Coin: pair
+            }
+        });
+
+        var queryFiveMinutes = await CandleFiveMinutes.findAll({
+            where: {
+                Coin: pair
+            }
+        });
+
+        var queryTenMinutes = await CandleTenMinutes.findAll({
+            where: {
+                Coin: pair
+            }
+        });
+
+        var concatenatedQueysResult = queryOneMinute.concat(queryFiveMinutes).concat(queryTenMinutes);
+
+        res.send(concatenatedQueysResult);
+    }
+
+});
+
+router.get('/candlestick/pair/:pair/time/:time', async (req, res) => {
     const pair = [req.params.pair];
     const time = [req.params.time];
 
