@@ -7,6 +7,7 @@ const CandleFiveMinutes = require('../database/models/CandleFiveMinutes');
 const CandleTenMinutes = require('../database/models/CandleTenMinutes');
 const { Times } = require('../services/AvailableTimestamps.json');
 const { Coins } = require('../services/AvailableCoins.json');
+const db = require('../database/db');
 
 router.post('/candlestick', (req, res) => {
 

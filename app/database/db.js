@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 const config = require('config');
 const mysql = require('mysql2');
 
-const { dialect, host, port, dbName, dbUser, dbPassword } = config.get("DatabaseDevelopment").dbConfig;
+const { dialect, host, port, dbName, dbUser, dbPassword } = config.get("DatabaseProduction").dbConfig;
 
 const initializeDb = async () => {
     const mysqlConnection = mysql.createConnection({

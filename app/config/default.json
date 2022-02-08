@@ -12,7 +12,7 @@
     "DatabaseProduction":{
         "dbConfig":{
             "dialect":"mysql",
-            "host": "mysql",
+            "host": "db",
             "port": "3306",
             "dbName":"smarttbot",
             "dbUser":"root",
